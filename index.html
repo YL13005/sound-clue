@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Mixeur Sonore Interactif</title>
+    <link rel="stylesheet" href="src/style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<h1>Analyseur de son</h1>
+<div id="sliders">
+    <div class="slider-container">
+        <input type="range" min="0" max="100" value="0" class="slider" orient="vertical" data-id="1">
+        <label>Piste 1</label>
+    </div>
+    <div class="slider-container">
+        <input type="range" min="0" max="100" value="0" class="slider" orient="vertical" data-id="2">
+        <label>Piste 2</label>
+    </div>
+    <div class="slider-container">
+        <input type="range" min="0" max="100" value="0" class="slider" orient="vertical" data-id="3">
+        <label>Piste 3</label>
+    </div>
+    <div class="slider-container">
+        <input type="range" min="0" max="100" value="0" class="slider" orient="vertical" data-id="4">
+        <label>Piste 4</label>
+    </div>
+    <div class="slider-container">
+        <input type="range" min="0" max="100" value="0" class="slider" orient="vertical" data-id="5">
+        <label>Piste 5</label>
+    </div>
+</div>
+
+<button id="start">▶ Démarrer</button>
+
+<script type="module" src="src/main.ts"></script>
+</body>
+</html>

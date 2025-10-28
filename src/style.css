@@ -1,0 +1,127 @@
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: radial-gradient(circle at 50% 20%, #222 0%, #000 100%);
+  color: #0ff;
+  text-align: center;
+  padding: 20px;
+  overflow-x: hidden;
+  font-size: 200%;
+}
+
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff;
+  margin-bottom: 40px;
+}
+
+#sliders {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 40px 0;
+}
+
+.slider-container {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+/* === Slider track (fond) === */
+input[type="range"][orient="vertical"] {
+  writing-mode: vertical-lr; /* plus stable que bt-lr */
+  -webkit-appearance: slider-vertical; /* nécessaire sur Chrome/Safari */
+  transform: rotate(180deg);
+  appearance: slider-vertical;
+  width: 30px;
+  height: 220px;
+  background: linear-gradient(to top, #111 0%, #333 100%);
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px #000;
+  outline: none;
+  transition: all 0.2s;
+  cursor: pointer; /* important pour interaction */
+}
+
+/* === Bouton du slider === */
+input[type="range"][orient="vertical"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #0ff 20%, #008 100%);
+  box-shadow: 0 0 10px #0ff, inset 0 0 10px #004;
+  cursor: grab; /* indique qu'on peut le bouger */
+  transition: all 0.3s;
+  margin-top: -4px; /* recentre sur la piste */
+}
+
+input[type="range"][orient="vertical"]::-webkit-slider-thumb:active {
+  cursor: grabbing;
+}
+
+input[type="range"][orient="vertical"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #0ff, inset 0 0 20px #00f;
+}
+
+/* Firefox compatibilité */
+input[type="range"][orient="vertical"]::-moz-range-thumb {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #0ff 20%, #008 100%);
+  box-shadow: 0 0 10px #0ff, inset 0 0 10px #004;
+  cursor: grab;
+  transition: all 0.3s;
+}
+
+input[type="range"][orient="vertical"]::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #0ff, inset 0 0 20px #00f;
+}
+
+input[type="range"][orient="vertical"]::-moz-range-track {
+  background: linear-gradient(to top, #111 0%, #333 100%);
+  border-radius: 10px;
+}
+
+
+
+/* texte du label */
+label {
+  margin-top: 10px;
+  color: #0ff;
+  text-shadow: 0 0 8px #0ff;
+}
+
+/* bouton démarrer */
+#start {
+  padding: 12px 30px;
+  font-size: 18px;
+  border: 2px solid #0ff;
+  border-radius: 50px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #0ff;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 0 10px #0ff;
+  transition: all 0.3s;
+}
+
+#start:hover {
+  background: #0ff;
+  color: #000;
+  box-shadow: 0 0 30px #0ff;
+}
+
+/* animation de jauge dynamique (via classe js) */
+.slider-container.active::before {
+  height: var(--gauge-level);
+}
+.slider-container::before {
+  pointer-events: none; /* ← empêche la jauge de bloquer la souris */
+}
